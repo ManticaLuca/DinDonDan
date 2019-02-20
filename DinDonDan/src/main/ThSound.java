@@ -35,9 +35,7 @@ public class ThSound implements Runnable {
                 sharedData.SetFinito(sound);
                 return;
             }
-            sharedData.GetSchermo().GetSemaforo().Wait();
             sharedData.GetSchermo().GetBuffer().add(sound);
-            sharedData.GetSchermo().GetSemaforo().Signal();
         }
        
     }

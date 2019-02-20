@@ -22,11 +22,11 @@ public class SharedData {
         this.schermo = new Schermo();
         this.thRunning = new boolean[3];
         for (int i = 0; i < thRunning.length; i++) {
-                thRunning[i] = true;
-            }
+            thRunning[i] = true;
+        }
     }
 
-    public Schermo GetSchermo() {
+    synchronized public Schermo GetSchermo() {
         return schermo;
     }
 
@@ -35,7 +35,7 @@ public class SharedData {
      * @return true se tutti i thread sono terminati
      * @author Luca Mantica
      */
-    public boolean ThreadFiniti() {
+    synchronized public boolean ThreadFiniti() {
         boolean ris = true;
         for (int i = 0; i < 3; i++) {
             if (thRunning[i]) {
@@ -45,7 +45,7 @@ public class SharedData {
         return ris;
     }
 
-    void SetFinito(String sound) {
+    synchronized void SetFinito(String sound) {
         int ris = 0;
         for (int i = 0; i < souni.length; i++) {
             if (sound.equals(souni[i])) {

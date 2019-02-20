@@ -21,9 +21,7 @@ public class ThVis extends Thread {
     public void run() {
         System.out.println("Started printing...");
         while (!sharedData.ThreadFiniti()) {
-            sharedData.GetSchermo().GetSemaforo().Wait();
             String newString = sharedData.GetSchermo().GetBuffer().poll();
-            sharedData.GetSchermo().GetSemaforo().Signal();
             if (newString != null) {
                 System.out.println(newString);
             }

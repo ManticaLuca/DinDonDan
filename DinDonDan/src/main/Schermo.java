@@ -22,11 +22,11 @@ public class Schermo {
         this.semaforo = new Semaforo(1);
     }
 
-    public Semaforo GetSemaforo() {
+    synchronized public Semaforo GetSemaforo() {
         return semaforo;
     }
 
-    public Queue<String> GetBuffer() {
+    synchronized public Queue<String> GetBuffer() {
         return buffer;
     }
 
